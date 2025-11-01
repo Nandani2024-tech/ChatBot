@@ -47,5 +47,10 @@ def chat():
         return jsonify({"reply": f"Error: {str(e)}"})
 
 
+# if __name__ == "__main__":
+#     app.run(debug=DEBUG_MODE)
+
+
 if __name__ == "__main__":
-    app.run(debug=DEBUG_MODE)
+    port = int(os.getenv("PORT", 5000))  # Render provides PORT dynamically
+    app.run(host="0.0.0.0", port=port, debug=DEBUG_MODE)
